@@ -1,0 +1,28 @@
+{
+  "name": "kbn-simple-auth",
+  "version": "1.0.0",
+  "description": "the server plugin of kibana",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fsz65/kbn-simple-auth.git"
+  },
+  "keywords": [
+    "auth",
+    "kibana",
+    "plugin"
+  ],
+  "author": "shuzhi Fang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fsz65/kbn-simple-auth/issues"
+  },
+  "homepage": "https://github.com/fsz65/kbn-simple-auth#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-http-proxy": "^0.10.1"
+  }
+}

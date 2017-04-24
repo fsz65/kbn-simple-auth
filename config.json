@@ -1,0 +1,9 @@
+{
+  "proxy": {
+    "port": 8080,
+    "remote": "localhost:5601",
+    "interfaceHostName":"",
+    "interfacePath":"",
+    "loginUrl":""
+  }
+}

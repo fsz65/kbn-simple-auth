@@ -23,7 +23,7 @@ module.exports = {
                 console.log(req);
                console.log("this is proxy by fsz");
                 var cookie = req.headers.cookie;
-                /*User.userInfo('minos2.cnsuning.com','/minos2-admin/event/getAppcodes.htm',cookie,function (body,status) {
+                /*User.userInfo('minos2.xxx.com','/minos2-admin/event/getAppcodes.htm',cookie,function (body,status) {
                     if (status == 302){
                         req.path = "/fsz"
                     }

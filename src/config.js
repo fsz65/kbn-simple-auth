@@ -1,5 +1,5 @@
 /**
- * Created by 15061857 on 2017/4/24.
+ * Created by fsz on 2017/4/24.
  * load the config.json file from disk
  */
 const fs = require('fs');

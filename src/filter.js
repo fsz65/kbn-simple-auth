@@ -7,7 +7,7 @@
 const Express = require('express');
 const Proxy = require('express-http-proxy');
 const Config = require('./config').load('proxy');
-const User = require('./user');
+const User = require('./user').userInfo;
 
 var app = Express();
 
@@ -19,20 +19,25 @@ module.exports = {
             filter:function (req,res) {
                 return true;
             },
-            decorateRequest:function (req) {
-                console.log(req);
-               console.log("this is proxy by fsz");
-                var cookie = req.headers.cookie;
-                /*User.userInfo('minos2.xxx.com','/minos2-admin/event/getAppcodes.htm',cookie,function (body,status) {
-                    if (status == 302){
-                        req.path = "/fsz"
-                    }
-                });*/
-                req.path = "/fsz";
-                return req;
-            },
-            forwardPath:function (req) {
-                return require('url').parse(req.url).path;
+
+            forwardPathAsync:function (req) {
+                return new Promise((resolve,reject) =>{
+                    //console.log(req);
+                    //console.log("this is proxy by fsz");
+                    var cookie = req.headers.cookie;
+                    console.log(cookie);
+                    User(Config.interfaceHostName,Config.interfacePath,cookie)
+                        .then(function (v) {
+                            console.log(v);
+                            if (v.authInfo != '15061857'){
+                                resolve("/fsz");
+                                //resolve(require('url').parse(req.url).path);
+                            }else {
+                                resolve(require('url').parse(req.url).path);
+                            }
+                        });
+                });
+
             }
         }));
         app.listen(Config.port);

@@ -2,8 +2,8 @@
   "proxy": {
     "port": 8080,
     "remote": "localhost:5601",
-    "interfaceHostName":"",
-    "interfacePath":"",
-    "loginUrl":""
+    "interfaceHostName":"minos2sit.xxxx.com",
+    "interfacePath":"/minos2-admin/menu/queryCurUser.htm",
+    "loginUrl":"http://minos2sit.xxxx.com:9080/minos2-admin/log/testRedirect.htm"
   }
 }

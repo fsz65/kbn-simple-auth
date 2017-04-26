@@ -6,7 +6,7 @@
 'use strict'
 module.exports = function (kibana) {
     const Filter = require('./src/filter');
-
+    const Config = require('./src/config').load('proxy');
     return new kibana.Plugin({
         init:function init(server) {
             Filter.proxy();
@@ -14,7 +14,7 @@ module.exports = function (kibana) {
                 method:'GET',
                 path:'/fsz',
                 handler:function (request,reply) {
-                    return reply.redirect("https://sso.xxx.com/ids/login?service=http://eyedev.xxx.com:5601/app/kibana");
+                    return reply.redirect(Config.loginUrl);
                 }
             })
         }

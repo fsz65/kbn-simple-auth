@@ -20,19 +20,19 @@ const userInfo = (hostname,path,cookie) => {
             },
             agent:false
         };
-        console.log("fffffff");
+        //console.log("fffffff");
         const req = http.request(options, (res) => {
-            console.log(options);
+            //console.log(options);
             var bodyString = '';
-            console.log(`STATUS: ${res.statusCode}`);
-            console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+            //console.log(`STATUS: ${res.statusCode}`);
+            //console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
             res.setEncoding('utf8');
             res.on('data', (chunk) => {
                 //console.log(`BODY: ${chunk}`);
                 bodyString = bodyString + chunk;
             });
             res.on('end', () => {
-                console.log('No more data in response.');
+                //console.log('No more data in response.');
                 var authInfo = {authInfo:bodyString,status:res.statusCode};
                 resolve(authInfo);
             });

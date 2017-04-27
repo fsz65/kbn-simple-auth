@@ -25,17 +25,24 @@ module.exports = {
                     //console.log(req);
                     //console.log("this is proxy by fsz");
                     var cookie = req.headers.cookie;
-                    console.log(cookie);
-                    User(Config.interfaceHostName,Config.interfacePath,cookie)
-                        .then(function (v) {
-                            console.log(v);
-                            if (v.authInfo != '15061857'){
-                                resolve("/fsz");
-                                //resolve(require('url').parse(req.url).path);
-                            }else {
-                                resolve(require('url').parse(req.url).path);
-                            }
-                        });
+                    //var session = req.state.session;
+                    //console.log(session);
+                    //console.log(cookie);
+                    if (req.path.startsWith('/app')) {
+                        User(Config.interfaceHostName,Config.interfacePath,cookie)
+                            .then(function (v) {
+                                //console.log(v);
+                                if (v.authInfo != '15061857'){
+                                    resolve("/fsz?user=ffffff");
+                                    //resolve(require('url').parse(req.url).path);
+                                }else {
+                                    resolve(require('url').parse(req.url).path);
+                                }
+                            });
+                    }else {
+                        resolve(require('url').parse(req.url).path);
+                    }
+
                 });
 
             }

@@ -32,8 +32,8 @@ module.exports = {
                         User(Config.interfaceHostName,Config.interfacePath,cookie)
                             .then(function (v) {
                                 //console.log(v);
-                                if (v.authInfo != '15061857'){
-                                    resolve("/fsz?user=ffffff");
+                                if (v == 'tourist' || v=='' || v == null){
+                                    resolve("/fsz");
                                     //resolve(require('url').parse(req.url).path);
                                 }else {
                                     resolve(require('url').parse(req.url).path);
